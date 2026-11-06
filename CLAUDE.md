@@ -1,6 +1,6 @@
 # SimpleSample
 
-Aplicación Flutter para Windows y Android (iOS opcional) para grabar instrumentos, convertirlos en samples y componer con pads, modo teclado y secuenciador por pasos. Es el TFG de 2º de DAM de Manu (IES La Marisma, curso 2026/2027). Backend en Supabase.
+Aplicación Flutter para Windows y Android (iOS opcional) para grabar instrumentos, convertirlos en samples y componer con pads, modo teclado y secuenciador por pasos. Es el TFG de 2º de DAM de Manu (IES La Marisma, curso 2026/2027). El backend será propio y se decide en el Sprint 2 (ver `docs/decisiones.md`, D-03).
 
 ## PROTOCOLO OBLIGATORIO: aprendizaje antes que código
 
@@ -18,7 +18,7 @@ Manu defenderá este proyecto ante un tribunal que evalúa la autoría individua
 - No inventes APIs, parámetros ni versiones. Antes de usar una función de una librería, compruébala con el servidor MCP de Dart (búsqueda en pub.dev, analizador) o en la documentación oficial.
 - Tras cada cambio, ejecuta el analizador y las pruebas a través del MCP de Dart. El código no está terminado si `flutter analyze` da errores.
 - Si no sabes algo, dilo. Distingue lo seguro de lo supuesto.
-- Supabase: el MCP está en solo lectura y apunta al proyecto de desarrollo. Cualquier cambio de esquema se hace como migración que Manu revisa y entiende antes de aplicarla.
+- Backend y base de datos: cualquier cambio de esquema se hace como migración que Manu revisa y entiende antes de aplicarla.
 
 ## Arquitectura por capas
 
@@ -27,17 +27,17 @@ lib/
   presentation/   pantallas, widgets y providers de Riverpod
   domain/         modelos y lógica pura (secuenciador, cuantización), sin dependencias externas
   audio/          servicio que encapsula flutter_soloud y record
-  data/           repositorios: guardado local y sincronización con Supabase
+  data/           repositorios: guardado local y sincronización con el backend
 test/             pruebas unitarias, con prioridad en domain/
 specs/            una spec por historia de usuario (SDD)
 docs/             registro de decisiones y material de la memoria
 ```
 
-La capa `domain/` no importa nada de Flutter, audio ni Supabase. Así se puede probar sola y cambiar una librería sin romper la lógica.
+La capa `domain/` no importa nada de Flutter, audio ni del backend. Así se puede probar sola y cambiar una librería sin romper la lógica.
 
 ## Stack cerrado
 
-Flutter y Dart, flutter_soloud, record, supabase_flutter, Riverpod. Presupuesto cero: nada de pago. Cualquier dependencia nueva se justifica, se registra en `docs/decisiones.md` y Manu la aprueba.
+Flutter y Dart, flutter_soloud, record, Riverpod. Backend propio, por decidir en el Sprint 2 (Supabase y Firebase descartados). Presupuesto cero: nada de pago. Cualquier dependencia nueva se justifica, se registra en `docs/decisiones.md` y Manu la aprueba.
 
 ## Fuera de alcance
 
