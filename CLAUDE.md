@@ -28,6 +28,7 @@ lib/
   domain/         modelos y lógica pura (secuenciador, cuantización), sin dependencias externas
   audio/          servicio que encapsula flutter_soloud y record
   data/           repositorios: guardado local y sincronización con el backend
+  core/           constantes, tema y utilidades compartidas
 test/             pruebas unitarias, con prioridad en domain/
 specs/            una spec por historia de usuario (SDD)
 docs/             registro de decisiones y material de la memoria
@@ -50,6 +51,16 @@ Edición multipista en timeline, automatización, mezcla avanzada, plugins VST y
 3. Ramas: `main` (versiones estables), `develop` (integración), `feature/HU-xx-descripcion`.
 4. Commits pequeños y en español, con prefijo: `feat:`, `fix:`, `test:`, `docs:`, `refactor:`.
 5. Definition of Done: criterios de aceptación cumplidos, pruebas superadas, `flutter analyze` limpio, probado en Windows y Android, y la parte de la memoria redactada.
+
+## Flujo Git (PI)
+
+- `main` y `develop` son ramas permanentes. `feature/*` sale de `develop` y vuelve a `develop` con PR.
+- Al cerrar cada sprint se integra `develop` en `main`.
+- `hotfix/*` sale de `main` y se fusiona en `main` y en `develop`.
+- La PR se revisa (diff incluido) ANTES de mergear. No se borran las ramas de sprint ni de feature sin confirmarlo.
+- Documentación de cada sprint (memoria, demos) en `docs/sprint1/`, `docs/sprint2/`…; la memoria entregada vive en `docs/memoria/`.
+- Si trabajo en la rama equivocada, o pongo algo fuera de su carpeta, avísame y explícame cómo hacerlo bien: en qué rama debería estar, qué comando usar y en qué carpeta va.
+- Nunca `push --force`, `reset --hard` ni reescribir historial.
 
 ## Subagentes
 
