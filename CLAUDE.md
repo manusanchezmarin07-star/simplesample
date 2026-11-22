@@ -47,7 +47,7 @@ Edición multipista en timeline, automatización, mezcla avanzada, plugins VST y
 
 1. Cada historia de usuario tiene su spec en `specs/HU-xx.md`. No se implementa nada sin spec.
 2. El código se escribe contra los criterios de aceptación de la spec.
-3. Ramas: `main` (versiones estables), `develop` (integración), `feature/HU-xx-descripcion`.
+3. Ramas (Git Flow, ver D-06): `main` (rama principal, solo lo entregado en cada sprint), `develop` (integración), `feature/<nº-issue>-descripcion` desde develop, y `hotfix/descripcion` desde main para fallos urgentes, que vuelve a main y a develop. Al cerrar cada sprint: PR de develop a main y etiqueta `v0.x.0`.
 4. Commits pequeños y en español, con prefijo: `feat:`, `fix:`, `test:`, `docs:`, `refactor:`.
 5. Definition of Done: criterios de aceptación cumplidos, pruebas superadas, `flutter analyze` limpio, probado en Windows y Android, y la parte de la memoria redactada.
 
