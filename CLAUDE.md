@@ -22,13 +22,14 @@ Manu defenderá este proyecto ante un tribunal que evalúa la autoría individua
 
 ## Arquitectura por capas
 
+Esquema provisional: la arquitectura definitiva se decide en el Sprint 2 (`docs/decisiones.md`, D-08).
+
 ```
 lib/
   presentation/   pantallas, widgets y providers de Riverpod
   domain/         modelos y lógica pura (secuenciador, cuantización), sin dependencias externas
   audio/          servicio que encapsula flutter_soloud y record
   data/           repositorios: guardado local y sincronización con el backend
-  core/           constantes, tema y utilidades compartidas
 test/             pruebas unitarias, con prioridad en domain/
 specs/            una spec por historia de usuario (SDD)
 docs/             registro de decisiones y material de la memoria
@@ -52,11 +53,10 @@ Edición multipista en timeline, automatización, mezcla avanzada, plugins VST y
 4. Commits pequeños y en español, con prefijo: `feat:`, `fix:`, `test:`, `docs:`, `refactor:`.
 5. Definition of Done: criterios de aceptación cumplidos, pruebas superadas, `flutter analyze` limpio, probado en Windows y Android, y la parte de la memoria redactada.
 
-## Flujo Git (PI)
+## Complemento al flujo Git
 
-- `main` y `develop` son ramas permanentes. `feature/*` sale de `develop` y vuelve a `develop` con PR.
-- Al cerrar cada sprint se integra `develop` en `main`.
-- `hotfix/*` sale de `main` y se fusiona en `main` y en `develop`.
+La estrategia de ramas es la de `docs/decisiones.md` (D-06); si algo de aquí la contradice, manda `docs/`.
+
 - La PR se revisa (diff incluido) ANTES de mergear. No se borran las ramas de sprint ni de feature sin confirmarlo.
 - Documentación de cada sprint (memoria, demos) en `docs/sprint1/`, `docs/sprint2/`…; la memoria entregada vive en `docs/memoria/`.
 - Si trabajo en la rama equivocada, o pongo algo fuera de su carpeta, avísame y explícame cómo hacerlo bien: en qué rama debería estar, qué comando usar y en qué carpeta va.
