@@ -30,16 +30,18 @@ Cada decisión importante se apunta aquí con su fecha, qué se decidió, por qu
 **Fecha:** septiembre 2026
 **Decisión:** todas las herramientas gratuitas o en plan gratuito. Distribución por GitHub Releases, sin Google Play ni App Store.
 
-## D-06. Estrategia de ramas
-**Fecha:** noviembre 2026
-**Decisión:** Git Flow simplificado.
-- `main`: solo la versión final publicada. No se trabaja directamente en ella.
-- `develop`: rama de integración y rama por defecto del repositorio; todo llega aquí mediante pull request.
-- `feature/<nº-issue>-<descripcion>`: una rama corta por historia de usuario del tablero Kanban, creada desde develop y fusionada en develop. Igual para `fix/...`, `docs/...` y `chore/...`.
-- Al cerrar cada sprint, tag anotado en develop: `v0.1.0-sprint1`, `v0.2.0-sprint2`...
-**Motivo:** ramas cortas, fusiones pequeñas y trazabilidad directa con las historias del Kanban.
-**Descartada:** una rama por sprint, porque acumula semanas de cambios sin integrar y las fusiones se vuelven grandes y difíciles de depurar.
-**A tener en cuenta:** el repositorio es público desde noviembre de 2026, así que el plan gratuito ya permite proteger `main` con una regla de rama. Mientras no se configure, la norma de no tocar `main` es de disciplina.
+## D-06. Estrategia de ramas (revisada)
+**Fecha:** noviembre 2026 · **Revisión:** noviembre 2026, tras la explicación del profesor
+**Decisión:** Git Flow.
+- `main`: rama principal del repositorio. Solo recibe lo entregado al final de cada sprint y las correcciones urgentes.
+- `develop`: rama de integración. De ella salen las ramas de cada tarea del sprint y a ella vuelven mediante pull request.
+- `feature/<nº-issue>-<descripcion>`: una rama corta por historia de usuario del tablero Kanban. Igual para `docs/...` y `chore/...`.
+- Cierre de sprint: pull request de `develop` a `main` y etiqueta de versión en `main` (`v0.1.0` Sprint 1, `v0.2.0` Sprint 2, `v0.3.0` Sprint 3, `v1.0.0` versión final).
+- `hotfix/<descripcion>`: si aparece un fallo en `main`, se crea desde `main`, se fusiona en `main` con versión de parche (`v0.1.1`...) y después en `develop`, para que las tareas en curso tengan la corrección.
+**Versionado:** semántico, mayor.menor.parche.
+**Motivo:** ramas cortas, fusiones pequeñas, trazabilidad con el Kanban y una rama `main` que siempre muestra la última versión entregada y estable.
+**Descartadas:** una rama por sprint (acumula semanas de cambios sin integrar) y `develop` como rama principal (dejaba `main` sin uso hasta el final del curso).
+**A tener en cuenta:** el repositorio es público, así que el plan gratuito permite proteger `main` con una regla de rama.
 
 ## D-07. Identidad visual
 **Fecha:** noviembre 2026
