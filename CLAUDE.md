@@ -22,6 +22,8 @@ Manu defenderá este proyecto ante un tribunal que evalúa la autoría individua
 
 ## Arquitectura por capas
 
+Esquema provisional: la arquitectura definitiva se decide en el Sprint 2 (`docs/decisiones.md`, D-08).
+
 ```
 lib/
   presentation/   pantallas, widgets y providers de Riverpod
@@ -50,6 +52,15 @@ Edición multipista en timeline, automatización, mezcla avanzada, plugins VST y
 3. Ramas (Git Flow, ver D-06): `main` (rama principal, solo lo entregado en cada sprint), `develop` (integración), `feature/<nº-issue>-descripcion` desde develop, y `hotfix/descripcion` desde main para fallos urgentes, que vuelve a main y a develop. Al cerrar cada sprint: PR de develop a main y etiqueta `v0.x.0`.
 4. Commits pequeños y en español, con prefijo: `feat:`, `fix:`, `test:`, `docs:`, `refactor:`.
 5. Definition of Done: criterios de aceptación cumplidos, pruebas superadas, `flutter analyze` limpio, probado en Windows y Android, y la parte de la memoria redactada.
+
+## Complemento al flujo Git
+
+La estrategia de ramas es la de `docs/decisiones.md` (D-06); si algo de aquí la contradice, manda `docs/`.
+
+- La PR se revisa (diff incluido) ANTES de mergear. No se borran las ramas de sprint ni de feature sin confirmarlo.
+- Documentación de cada sprint (memoria, demos) en `docs/sprint1/`, `docs/sprint2/`…; la memoria entregada vive en `docs/memoria/`.
+- Si trabajo en la rama equivocada, o pongo algo fuera de su carpeta, avísame y explícame cómo hacerlo bien: en qué rama debería estar, qué comando usar y en qué carpeta va.
+- Nunca `push --force`, `reset --hard` ni reescribir historial.
 
 ## Subagentes
 
